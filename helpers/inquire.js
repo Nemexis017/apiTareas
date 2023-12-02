@@ -1,6 +1,5 @@
 import inquirer from 'inquirer'
 import colors from 'colors';
-// require('colors');
 
 const menuOption = [
     {
@@ -103,7 +102,7 @@ const listaBorrar = async(tarea = [])=>{
         }
     ]
 
-    const { id }= await inquire.prompt(question);
+    const { id }= await inquirer.prompt(question);
     return id;
 }
 
@@ -126,10 +125,10 @@ const checkboxList = async(tarea = [])=>{
         return {
             value: tareas.id,
             name: `${idx} ${tareas.desc}`,
-            checked: true,
+            checked: (tareas.completadoEn )? true : false,
         }
     });
-    const question = [
+    const questionn = [
         {
             type: 'checkbox',
             name: 'ids',
@@ -138,7 +137,7 @@ const checkboxList = async(tarea = [])=>{
         }
     ]
 
-    const { ids }= await inquirer.prompt(question);
+    const { ids } = await inquirer.prompt(questionn);
     return ids;
 }
 

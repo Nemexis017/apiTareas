@@ -13,4 +13,4 @@ class Tarea{
 
 }
 
-export {Tarea};
+export default Tarea;

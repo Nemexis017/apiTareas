@@ -16,7 +16,7 @@ const main = async()=>{
     let option ='';
     // sistema de condicion infinita
     const listTasks = leerTareas();
-    const tareas = new Tareas();
+    const tareas = new Tareas(); 
 
     if(listTasks){
         tareas.carcarTarrearArray(listTasks)
@@ -44,7 +44,7 @@ const main = async()=>{
             case 5:
                 // hacer tareas pendientes
                 const ids = await checkboxList(tareas.listador);
-                console.log(ids);
+                tareas.marcarTareas(ids);
             break;
             case 6:
                 // borrar tareas

@@ -1,4 +1,4 @@
-import {Tarea as tarea} from './tarea.js';
+import Tarea from './tarea.js';
 import colors from 'colors';
 
 class Tareas{
@@ -75,6 +75,21 @@ class Tareas{
             numero++;
         })
     }
+
+    marcarTareas(ids = []){
+        ids.forEach(id=>{
+            const tarea = this._listado[id]; 
+            if(!tarea.completadoEn){
+                tarea.completadoEn = new Date().toISOString();
+            }
+        })
+
+        this.listador.forEach(tarea =>{
+            if(!ids.includes(tarea.id)){
+                this._listado[tarea.id].completadoEn= null;
+            }
+        })
+    }
 }
 
-export { Tareas };
+export default Tareas;
